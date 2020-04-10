@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tattz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="./source/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./source/css/fonts.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Шапка сайта -->
+    <div class="row header align-items-center">
+      <div class="header__burger-menu order-1 order-md-2 col-xl-5 col-lg-8 col-md-6 col-sm-2 col-2">
+        <a><img src="./source/img/icons/burger-menu.svg" alt="Меню"></a>
+        <ul class="header__nav">
+          <li class="header__nav__elem">Мастера</li>
+          <li class="header__nav__elem">Студии</li>
+          <li class="header__nav__elem">Галерея татуировок</li>
+        </ul>
+      </div>
+      <div class="header__logo order-2 order-md-1 offset-md-0 col-xl-1 col-lg-2 col-md-3 offset-sm-2 col-sm-4 col-8">
+        <a><img src="./source/img/logo-mobile.png" alt="Лого"></a>
+      </div>
+      <div class="header__town order-4 offset-xl-1  col-xl-3">
+        <div class="header__town-block">
+          <p class="header__town-text">Ваш город:</p>
+          <p class="header__town-title">Санкт-Петербург</p>
+        </div>
+      </div>
+      <div class="header__user order-4 col-xl-2 col-lg-2 col-md-3 col-sm-4 col-2"><a><img
+            src="./source/img/avatar-user.png" alt="Аватар">
+          <p class="header__user__name">Дмитрий</p>
+        </a>
+      </div>
+    </div>
+    <!-- Конец шапки -->
+    <!-- Панель меню -->
+    <div class="row menu-panel">
+      <div class="menu-panel__main col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+        <a href="#" class="menu-panel__main__elem active">Тату-мастера</a>
+        <a href="#" class="menu-panel__main__elem">Тату-студии</a>
+      </div>
+      <div class="menu-panel__settings col-xl-6 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+        <div class="menu-panel__settings-elem">
+          <div class="menu-panel__settings__search-icon menu-panel__settings-elem-icon"></div>
+          <input type="text" class="menu-panel__settings__search-input" placeholder="Найти мастера">
+        </div>
+        <div class="menu-panel__settings-elem active-filter">
+          <div class="menu-panel__settings__filter-icon menu-panel__settings-elem-icon"></div>
+          <p class="menu-panel__settings__filter-title">Фильтр</p>
+        </div>
+        <div class="menu-panel__settings-elem">
+          <div class="menu-panel__settings__show-map-icon menu-panel__settings-elem-icon"></div>
+          <p class="menu-panel__settings__show-map-title">Показать на карте</p>
+        </div>
+      </div>
+    </div>
+    <!-- Конец панели меню -->
+  </div>
+  <!-- Контейнер с фильтром внутри -->
+  <div class="container no-padding">
+    <!-- Фильтр (в мобильной версии абсолютное позициниорование) -->
+    <div class=" row filter-panel">
+      <div class="filter-panel__close desktop"></div>
+      <div class="filter-panel__header col-xl-0 col-lg-0 col-md-12 col-sm-12 col-12">
+        <div class="filter-panel__close"></div>
+        <div class="filter-panel__confirm"></div>
+        <div class="filter-panel__header__icon"></div>
+        <div class="filter-panel__header__title">Фильтр</div>
+      </div>
+      <!-- Уровень мастера -->
+      <div class="filter-panel__elem order-1 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
+        <p class="filter-panel__elem-title">Укажите уровень мастера</p>
+        <ul class="filter-panel__elem__settings">
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Любой уровень</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Начинающий (до 1 года)</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Мастер (1-3 года)</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Профессионал (более 3 лет)</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <!-- Стиль татуировки -->
+      <div class="filter-panel__elem styles order-2 order-lg-4 col-xl-7 col-lg-8 col-md-12 col-sm-12 col-12">
+        <p class="filter-panel__elem-title">Стили татуировки</p>
+        <div class="filter-panel__elem-tags">
+          <p class="filter-panel__elem-tag active">авторскийстиль</p>
+          <p class="filter-panel__elem-tag">акварель</p>
+          <p class="filter-panel__elem-tag">биомеханика</p>
+          <p class="filter-panel__elem-tag">backwork</p>
+          <p class="filter-panel__elem-tag">black&gray</p>
+          <p class="filter-panel__elem-tag">ботаника</p>
+          <p class="filter-panel__elem-tag">геометрия</p>
+          <p class="filter-panel__elem-tag">графика</p>
+          <p class="filter-panel__elem-tag">dotwork</p>
+          <p class="filter-panel__elem-tag">dotwork</p>
+          <p class="filter-panel__elem-tag">blackwork</p>
+          <p class="filter-panel__elem-tag">биомеханика</p>
+          <p class="filter-panel__elem-tag">blackwork</p>
+          <p class="filter-panel__elem-tag">биомеханика</p>
+          <p class="filter-panel__elem-tag">blackwork</p>
+          <p class="filter-panel__elem-tag">blackwork</p>
+          <p class="filter-panel__elem-tag">black&gray</p>
+        </div>
+        <p class="filter-panel__elem__more">Показать ещё</p>
+      </div>
+      <!-- Где работает мастер -->
+      <div class="filter-panel__elem order-3 order-lg-2 offset-xl-1 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
+        <p class="filter-panel__elem-title">Где работает мастер</p>
+        <ul class="filter-panel__elem__settings">
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Не важно</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">На дому</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Домашняя студия</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">Студия</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <!-- Стоимость -->
+      <div
+        class="filter-panel__elem no-border-bottom order-4 order-lg-3 offset-xl-1 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
+        <p class="filter-panel__elem-title">Стоимость</p>
+        <ul class="filter-panel__elem__settings">
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">до 500 ₽</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">500 - 1000 ₽</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">1000 - 3000 ₽</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">3000 - 5000 ₽</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">5000 - 10000 ₽</p>
+            </label>
+          </li>
+          <li class="filter-panel__elem__settings__elem">
+            <label class="filter-panel__elem__settings__elem__label">
+              <input type="checkbox" class="filter-panel__elem__settings__elem__checkbox">
+              <p class="filter-panel__elem__settings__elem__title">более 10000 ₽</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="filter-panel__button-block order-5 offset-xl-1 col-xl-4 col-lg-4 col-md-0 col-sm-0 col-0">
+        <button class="filter-panel__button">Применить фильтр</button>
+      </div>
+    </div>
+    <!-- Конец блока фильтра -->
+    <!-- Рекламный баннер -->
+    <div class="row advert-banner short-banner mobile">
+      <a></a>
+    </div>
+    <!-- Услуги -->
+    <!-- Обрати внимание -->
+    <div class="products attention">
+      <p class="products__title">Обрати внимание</p>
+      <div class="row">
+        <div class="products__items-block col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item hot">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo-2"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo-2"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Показать ещё -->
+          <div class="products__item more">
+            <p class="items__more-text">Показать ещё</p>
+          </div>
+        </div>
+        <div class="desktop-banner col-xl-3 col-lg-4 col-md-0 col-sm-0 col-0">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Лучший рейтинг -->
+  <div class="products best">
+    <div class="container">
+      <p class="products__title">Лучший рейтинг</p>
+      <div class="row">
+        <div class="products__items-block col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item hot">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo-2"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item hot">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo-2"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Карточка услуги -->
+          <div class="products__item">
+            <div class="products__item__cost">
+              <p class="products__item__cost-text">1500 ₽</p>
+            </div>
+            <div class="products__item__img-block dmitriy-tatoo"></div>
+            <div class="products__item__author">
+              <div
+                class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+              </div>
+              <p class="products__item__author__name">Дмитрий Останинкинов</p>
+            </div>
+          </div>
+          <!-- Показать ещё -->
+          <div class="products__item more">
+            <p class="items__more-text">Показать ещё</p>
+          </div>
+        </div>
+        <div class="desktop-banner col-xl-3 col-lg-4 col-md-0 col-sm-0 col-0">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Мастера из Петербург -->
+    <div class="products">
+      <p class="products__title">Мастера из Санкт-Петербурга</p>
+      <div class="row">
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточкаакционной услуги (карточка с классом hot) -->
+        <div class="products__item hot">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo-1"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+        <!-- Карточка услуги -->
+        <div class="products__item">
+          <div class="products__item__cost">
+            <p class="products__item__cost-text">1500 ₽</p>
+          </div>
+          <div class="products__item__img-block dmitriy-tatoo"></div>
+          <div class="products__item__author">
+            <div
+              class="products__item__author__photo dmitriy-photo products__item__author__photo__fire products__item__author__photo__red-arc">
+            </div>
+            <p class="products__item__author__name">Дмитрий Останинкинов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Конец блока услуг -->
+    <!-- Навигация по страницам товаров -->
+    <div class="row pages">
+      <ul class="pages__list">
+        <li class="pages__list-item active">1</li>
+        <li class="pages__list-item">2</li>
+        <li class="pages__list-item">3</li>
+        <li class="pages__list-item">4</li>
+        <li class="pages__list-item">...</li>
+      </ul>
+    </div>
+    <!-- Конекц навигации страниц -->
+    <!-- Рекламный баннер -->
+    <div class="row advert-banner high-mob-banner">
+      <a></a>
+    </div>
+</body>
+
+</html>

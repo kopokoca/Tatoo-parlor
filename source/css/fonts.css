@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Medium.ttf'),
+  url('../fonts/Gilroy-Medium.ttf') format('truetype'),
+  url('../fonts/Gilroy-Medium.eot') format('eot'),
+  url('../fonts/Gilroy-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  }
